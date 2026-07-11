@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartTech Templates | Free Web Utility Tools</title>
+    
+    <!-- PINTEREST VERIFICATION META TAG (CRITICAL FOR CLAIMING) -->
+    <meta name="p:domain_verify" content="5c5379ee74e67535854d7e9be6faab3b"/>
+
+    <style>
+        /* Deep Space Dark Slate Blue Aesthetic matching your brand architecture */
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+        }
+
+        header h1 span {
+            color: var(--primary);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Ad Frame Placements */
+        .ad-banner-block {
+            width: 100%;
+            max-width: 728px;
+            min-height: 90px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        /* Tool Grid Matrix */
+        .grid-container {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        .tool-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+
+        .tool-card.pink-theme:hover {
+            border-color: #ff007f;
+            box-shadow: 0 12px 30px -10px rgba(255, 0, 127, 0.15);
+        }
+        .tool-card.pink-theme .tool-badge {
+            background: rgba(255, 0, 127, 0.1);
+            color: #ff007f;
+        }
+
+        .tool-card.green-theme:hover {
+            border-color: #00ff66;
+            box-shadow: 0 12px 30px -10px rgba(0, 255, 102, 0.15);
+        }
+        .tool-card.green-theme .tool-badge {
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+        }
+
+        .tool-card h2 {
+            font-size: 1.35rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            margin-top: 10px;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .action-link {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .pink-theme .action-link { color: #ff007f; }
+        .green-theme .action-link { color: #00ff66; }
+
+        .action-link::after {
+            content: " →";
+            transition: transform 0.2s;
+        }
+
+        .tool-card:hover .action-link::after {
+            transform: translateX(4px);
+        }
+
+        /* Sticky Footer Monetag Layout Wrapper */
+        #sticky-bottom-frame {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #090d16;
+            border-top: 1px solid var(--border-color);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SmartTech <span>Utility Hub</span></h1>
+        <p>Premium, high-performance web applications designed to model financial goals, creator revenue mechanics, and runway calculations live.</p>
+    </header>
+
+    <!-- TOP MONETAG IMPRESSION HEADER CONTAINER -->
+    <div id="monetag-banner-top" class="ad-banner-block">
+        <!-- System automatically anchors ad tags here -->
+    </div>
+
+    <!-- MAIN INTERACTIVE PORTAL GRID -->
+    <div class="grid-container">
+        
+        <!-- CARD 1: FREELANCE ENGINE (Redirects to repository sub-site deployment) -->
+        <a href="./freelance-calculator/" class="tool-card">
+            <span class="tool-badge">Rates</span>
+            <h2>Freelance Rate Engine</h2>
+            <p>Calculate required global hourly rates based on custom annual profit benchmarks, taxes, and monthly operations bills.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 2: SOCIAL EARNINGS -->
+        <a href="./social-media-calculator/" class="tool-card pink-theme">
+            <span class="tool-badge">Creator</span>
+            <h2>Views Earnings Estimator</h2>
+            <p>Model custom social media traffic RPM pools directly alongside fixed corporate contract sponsor pricing tiers.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 3: RUNWAY CALCULATOR -->
+        <a href="./side-hustle-runway/" class="tool-card green-theme">
+            <span class="tool-badge">Runway</span>
+            <h2>Tax &amp; Savings Matrix</h2>
+            <p>Calculate absolute runway months and evaluate self-employment baseline tax allocations instantly.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+    </div>
+
+    <!-- FOOTER STICKY MONETAG PLACEMENT VIEW -->
+    <div id="sticky-bottom-frame">
+        <div id="monetag-banner-bottom" style="width:100%; max-width:468px; min-height:60px; text-align:center;">
+            <!-- Ad container baseline layer -->
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MONETAG MONETIZATION INJECTION ENGINE ZONE -->
+    <!-- ========================================== -->
+
+    <!-- In-Page Push / Banner Ad Zone Script (Zone ID: 11267460) -->
+    <script type="text/javascript">
+        (function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://zovidree.com||document.documentElement);
+    </script>
+
+    <!-- Onclick (Popunder) Tracking Native Script (Zone ID: 11267400) -->
+    <script type="text/javascript">
+        (function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://zovidree.com||document.documentElement);
+    </script>
+
+</body>
+</html>
