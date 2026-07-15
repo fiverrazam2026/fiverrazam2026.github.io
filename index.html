@@ -420,28 +420,30 @@
         cyberpunk: { title: "Cyberpunk Portfolio UI", tag: "Web Template Engine", desc: "A performance-optimized, single-page open-source frontend landing page architecture designed to capture visual portfolio interactions for remote software engineering teams.", features: ["Responsive CSS Grid Configurations", "Hardware Accelerated Canvas Scripts", "Custom Variable Root Color Themes", "SEO Structured Identity Formats"], img: "linear-gradient(135deg, #38bdf8 0%, #151d30 100%)" }
     };
 
-    /* --- PART 2: POPUP DETAIL PANEL DOCK SYSTEM DISPLAY HANDLERS --- */
-    function openDetails(appId) {
-        const data = appRegistryData[appId];
-        if (!data) return;
+function openDetails(appId) {
+    const data = appRegistryData[appId];
+    if (!data) return;
 
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalTag').innerText = data.tag;
-        document.getElementById('modalDescription').innerText = data.desc;
-        
-        // Dynamically loads the image string (Gradients or local folder file URL routes)
-        document.getElementById('modalImage').style.backgroundImage = data.img;
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalTag').innerText = data.tag;
+    document.getElementById('modalDescription').innerText = data.desc;
 
-        const featuresUl = document.getElementById('modalFeatures');
-        featuresUl.innerHTML = '';
-        data.features.forEach(feat => {
-            const li = document.createElement('li');
-            li.innerText = feat;
-            featuresUl.appendChild(li);
-        });
+    // Fixed image connector
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = data.img; 
+    modalImg.style.backgroundImage = "none"; 
 
-        document.getElementById('detailsModal').classList.add('active-view');
-    }
+    const featuresUl = document.getElementById('modalFeatures');
+    featuresUl.innerHTML = '';
+    data.features.forEach(feat => {
+        const li = document.createElement('li');
+        li.innerText = feat;
+        featuresUl.appendChild(li);
+    });
+
+    document.getElementById('detailsModal').classList.add('active-view');
+}
+
 
     function closeDetails(e) { if(e.target.id === 'detailsModal') forceCloseDetails(); }
     function forceCloseDetails() { document.getElementById('detailsModal').classList.remove('active-view'); }
