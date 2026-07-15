@@ -187,6 +187,34 @@
     .feature-list-box ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .feature-list-box li { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
     .feature-list-box li::before { content: "⚡"; color: var(--primary); font-size: 0.75rem; }
+
+
+    /* Deep Space Dark Dashboard Grid Containers */
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    perspective: 1000px; /* Crucial: Creates the 3D space depth */
+}
+
+/* Glassmorphic Tool Card Wrappers */
+.card-wrapper {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(7, 10, 19, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s ease;
+    transform-style: preserve-3d; /* Allows nested elements to look 3D */
+    will-change: transform;
+}
+
+/* Neon Glow Effect on Card Interaction */
+.card-wrapper:hover {
+    border-color: #38bdf8; /* Reactive neon highlight border */
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+}
+    
 </style>
 
 
@@ -462,6 +490,38 @@
     (function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://zovidree.com||document.documentElement);
 </script>
 
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+    const matrixCards = document.querySelectorAll(".card-wrapper");
+
+    matrixCards.forEach((card) => {
+        // Track coordinate math when mouse moves over the card surface
+        card.addEventListener("mousemove", (event) => {
+            const rect = card.getBoundingClientRect();
+            
+            // Find absolute cursor location inside the card element coordinates
+            const xCoord = event.clientX - rect.left;
+            const yCoord = event.clientY - rect.top;
+
+            // Map positions relative to the center anchor point (from -1 to 1)
+            const xPercent = (xCoord / rect.width) * 2 - 1;
+            const yPercent = (yCoord / rect.height) * 2 - 1;
+
+            // Lock boundaries securely within the maximum 8-degree design matrix
+            const rotateXAngle = (yPercent * -8).toFixed(2);
+            const rotateYAngle = (xPercent * 8).toFixed(2);
+
+            // Commit smooth 3D transform tracking updates
+            card.style.transform = `rotateX(${rotateXAngle}deg) rotateY(${rotateYAngle}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+
+        // Snap the card cleanly back to flat layout states when cursor exits
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
+        });
+    });
+});
+</script>
 
 </body>
 </html>
