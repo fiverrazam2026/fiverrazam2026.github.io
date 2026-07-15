@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTech Core Dashboard</title>
+    <title>SmartTech Core</title>
     <style>
         :root {
-            --bg-dark: #07090e;
-            --card-bg: rgba(13, 18, 30, 0.45);
-            --border-glow: rgba(0, 255, 204, 0.25);
-            --neon-cyan: #00ffcc;
+            --bg-dark: #090d16;
+            --container-bg: rgba(13, 20, 35, 0.4);
+            --card-bg: rgba(18, 26, 46, 0.5);
             --neon-blue: #3b82f6;
             --neon-pink: #ec4899;
-            --text-light: #f3f4f6;
+            --text-main: #f3f4f6;
             --text-muted: #9ca3af;
         }
 
@@ -25,87 +24,91 @@
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-light);
+            color: var(--text-main);
             min-height: 100vh;
-            padding: 4rem 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 3rem 1.5rem;
+            background-image: radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 60%);
         }
 
-        /* --- HEADER AREA --- */
-        .header-container {
+        /* --- DASHBOARD HEADER --- */
+        .dashboard-header {
             text-align: center;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            background: rgba(15, 22, 36, 0.6);
-            padding: 2.5rem;
+            background: var(--container-bg);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(16px);
+            padding: 2.5rem 2rem;
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
+            max-width: 720px;
+            width: 100%;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .header-container h1 {
-            font-size: 2rem;
-            letter-spacing: 2px;
+        .dashboard-header h1 {
+            font-size: 1.8rem;
             text-transform: uppercase;
-            margin-bottom: 0.75rem;
+            letter-spacing: 2px;
             font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #fff;
         }
 
-        .header-container p {
-            font-size: 0.9rem;
+        .dashboard-header p {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
 
-        /* --- SYSTEM FILTER CATEGORY BUTTONS --- */
+        /* --- FILTER SYSTEM DOCK --- */
         .filter-dock {
             display: flex;
             gap: 10px;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
-            padding: 0.5rem 1rem;
-            font-size: 0.75rem;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            border-radius: 30px;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.2s ease-in-out;
             letter-spacing: 0.5px;
         }
 
         .filter-btn:hover {
-            border-color: rgba(255, 255, 255, 0.3);
             color: #fff;
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .filter-btn.active {
-            background: #fff;
-            color: #000;
-            border-color: #fff;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
         }
 
-        /* --- 3D INTERACTIVE APP GRID --- */
-        .dashboard-grid {
+        /* --- 3D INTERACTIVE CARD GRID --- */
+        .app-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
             width: 100%;
-            max-width: 1100px;
-            margin-top: 2rem;
-            perspective: 1000px;
+            max-width: 1050px;
+            perspective: 1000px; /* Required layout parameter for 3D scripts */
         }
 
-        .app-card-wrapper {
+        .card-wrapper {
             transition: transform 0.15s ease-out;
             transform-style: preserve-3d;
             will-change: transform;
@@ -115,157 +118,159 @@
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 2.2rem 2rem;
             height: 100%;
-            min-height: 240px;
+            min-height: 230px;
             display: flex;
             flex-direction: column;
             position: relative;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             transform-style: preserve-3d;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .app-card-wrapper:hover .app-card {
-            border-color: var(--border-glow);
-            box-shadow: 0 15px 35px rgba(0, 255, 204, 0.1);
+        .card-wrapper:hover .app-card {
+            border-color: rgba(0, 255, 204, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.06);
         }
 
-        /* --- APP BADGES --- */
-        .card-badge {
+        /* --- TAG SYSTEM METRICS --- */
+        .card-tag {
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0.25rem 0.6rem;
+            letter-spacing: 0.5px;
+            padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            transform: translateZ(20px);
+            transform: translateZ(15px);
         }
 
-        .badge-tech { background: rgba(59, 130, 246, 0.15); color: var(--neon-blue); }
-        .badge-web { background: rgba(236, 72, 153, 0.15); color: var(--neon-pink); }
-        .badge-finance { background: rgba(0, 255, 204, 0.15); color: var(--neon-cyan); }
-        .badge-creator { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+        .tag-tech { background: rgba(59, 130, 246, 0.1); color: var(--neon-blue); }
+        .tag-web { background: rgba(236, 72, 153, 0.1); color: var(--neon-pink); }
+        .tag-finance { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+        .tag-creator { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
 
         .app-title {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             margin-bottom: 0.75rem;
-            line-height: 1.3;
-            transform: translateZ(30px);
+            color: #fff;
+            transform: translateZ(25px);
         }
 
-        .app-description {
+        .app-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 2rem;
             flex-grow: 1;
-            transform: translateZ(25px);
+            transform: translateZ(20px);
         }
 
-        .launch-link {
+        .launch-btn {
             font-size: 0.8rem;
             font-weight: 600;
             color: var(--neon-blue);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transform: translateZ(20px);
+            gap: 4px;
+            transform: translateZ(15px);
             transition: color 0.2s ease;
             cursor: pointer;
+            width: fit-content;
         }
 
-        .launch-link:hover {
-            color: var(--neon-cyan);
+        .launch-btn:hover {
+            color: #00ffcc;
         }
 
         /* --- ENGINE STATE SYSTEM FILTER HACKS --- */
-        .app-card-wrapper.hidden-engine {
+        .card-wrapper.hidden-engine {
             display: none !important;
         }
     </style>
 </head>
 <body>
 
-    <!-- CENTRAL WORKSPACE HEADER BLOCK -->
-    <header class="header-container">
+    <!-- COMPONENT HEADER ACCORDING TO LIVE LOOK -->
+    <header class="dashboard-header">
         <h1>SmartTech Core</h1>
         <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
         
-        <!-- UI FILTRATION DOCK COMPONENT -->
+        <!-- COMPONENT FILTER BUTTON DOCK -->
         <div class="filter-dock">
-            <button class="filter-btn active" onclick="filterSystem('all', this)">All Ecosystem</button>
-            <button class="filter-btn" onclick="filterSystem('finance', this)">Finance Matrices</button>
-            <button class="filter-btn" onclick="filterSystem('creator', this)">Creator Tools</button>
-            <button class="filter-btn" onclick="filterSystem('tech', this)">Advanced Tech</button>
-            <button class="filter-btn" onclick="filterSystem('web-templates', this)">Web Templates</button>
+            <button class="filter-btn active" onclick="executeFilter('all', this)">All Ecosystem</button>
+            <button class="filter-btn" onclick="executeFilter('finance', this)">Finance Matrices</button>
+            <button class="filter-btn" onclick="executeFilter('creator', this)">Creator Tools</button>
+            <button class="filter-btn" onclick="executeFilter('tech', this)">Advanced Tech</button>
+            <button class="filter-btn" onclick="executeFilter('web-templates', this)">Web Templates</button>
         </div>
     </header>
 
-    <!-- INTERACTIVE DASHBOARD ENVIRONMENT GRID -->
-    <main class="dashboard-grid">
+    <!-- CORE INTERACTIVE ENGINE APP GRID -->
+    <main class="app-grid">
 
-        <!-- CARD 1: TECH ENGINE -->
-        <div class="app-card-wrapper" data-category="tech">
+        <!-- CARD 1: ADVANCED TECH -->
+        <div class="card-wrapper" data-category="tech">
             <div class="app-card">
-                <span class="card-badge badge-tech">Tech</span>
+                <span class="card-tag tag-tech">Tech</span>
                 <h2 class="app-title">AI Automation Pricing Engine</h2>
-                <p class="app-description">Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
-                <div class="launch-link" onclick="alert('Launching AI Pricing Module...')">Launch Application &rarr;</div>
+                <p class="app-desc">Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
+                <div class="launch-btn">Launch Application &rarr;</div>
             </div>
         </div>
 
-        <!-- CARD 2: WEB TEMPLATE ENGINE -->
-        <div class="app-card-wrapper" data-category="web-templates">
+        <!-- CARD 2: WEB TEMPLATES -->
+        <div class="card-wrapper" data-category="web-templates">
             <div class="app-card">
-                <span class="card-badge badge-web">Web Templates</span>
+                <span class="card-tag tag-web">Web Templates</span>
                 <h2 class="app-title">Cyberpunk Portfolio UI</h2>
-                <p class="app-description">Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p>
-                <div class="launch-link" onclick="alert('Launching Cyberpunk UI Layout...')">Launch Application &rarr;</div>
+                <p class="app-desc">Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p>
+                <div class="launch-btn">Launch Application &rarr;</div>
             </div>
         </div>
 
-        <!-- CARD 3: FINANCE ENGINE -->
-        <div class="app-card-wrapper" data-category="finance">
+        <!-- CARD 3: FINANCE MATRICES -->
+        <div class="card-wrapper" data-category="finance">
             <div class="app-card">
-                <span class="card-badge badge-finance">Finance</span>
-                <h2 class="app-title">Freelance Rate Calculator</h2>
-                <p class="app-description">Analyze business operational costs, local tax commitments, and margin rates to accurately calculate billable hours.</p>
-                <div class="launch-link" onclick="alert('Launching Freelance Rate Engine...')">Launch Application &rarr;</div>
+                <span class="card-tag tag-finance">Finance</span>
+                <h2 class="app-title">Freelance Rate Matrix Engine</h2>
+                <p class="app-desc">Track core business cash operational costs, local tax commitments, and margin rates to accurately optimize target billable hours.</p>
+                <div class="launch-btn">Launch Application &rarr;</div>
             </div>
         </div>
 
-        <!-- CARD 4: CREATOR ENGINE -->
-        <div class="app-card-wrapper" data-category="creator">
+        <!-- CARD 4: CREATOR TOOLS -->
+        <div class="card-wrapper" data-category="creator">
             <div class="app-card">
-                <span class="card-badge badge-creator">Creator</span>
+                <span class="card-tag tag-creator">Creator</span>
                 <h2 class="app-title">Views Earnings Estimator</h2>
-                <p class="app-description">Input real-time visual impressions to evaluate custom payout milestones across multi-tier content platforms.</p>
-                <div class="launch-link" onclick="alert('Launching Earnings Estimator...')">Launch Application &rarr;</div>
+                <p class="app-desc">Input real-time content engagement metrics to evaluate custom brand deals and platform payout milestones live.</p>
+                <div class="launch-btn">Launch Application &rarr;</div>
             </div>
         </div>
 
     </main>
 
-    <!-- --- PRODUCTION JAVASCRIPT LOGIC --- -->
+    <!-- --- SECURE VANILLA JAVASCRIPT LAYER --- -->
     <script>
         /* ==========================================================================
-           1. REAL-TIME SYNCHRONIZED APP FILTRATION SYSTEM
+           1. SYNCHRONIZED APP FILTRATION ENGINE (FIXED)
            ========================================================================== */
-        function filterSystem(targetCategory, triggerButton) {
-            // Update active state on the navigation filter dock buttons
+        function executeFilter(selectedCategory, element) {
+            // Update selected button class lists
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            triggerButton.classList.add('active');
+            element.classList.add('active');
 
-            const dynamicCards = document.querySelectorAll('.app-card-wrapper');
+            // Select all target card elements safely
+            const targetCards = document.querySelectorAll('.card-wrapper');
             
-            dynamicCards.forEach(card => {
-                const itemCategory = card.getAttribute('data-category');
+            targetCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
