@@ -1,6 +1,6 @@
 # SmartTech Interactive Financial & Creator Utility Hub
 
-Welcome to the central production repository for the **SmartTech Utility Hub**. This open-source platform hosts a curated suite of lightweight, browser-native calculation matrices designed to help freelancers, content creators, digital investors, and side-hustlers audit financial limits, target margins, and asset allocations dynamically.
+Welcome to the central production repository for the **SmartTech Utility Hub**. This open-source platform hosts a curated suite of lightweight, browser-native calculation matrices designed to help freelancers, content creators, digital investors, remote workers, and side-hustlers audit financial limits, target margins, and asset allocations dynamically.
 
 🌐 **Live Production Hub:** [fiverrazam2026.github.io](https://github.io)
 
@@ -18,7 +18,8 @@ The root directory serves as a high-performance router portal directing inbound 
 ├── /side-hustle-runway/         # Tool 3: Net Cash Savings Runway Matrix
 ├── /ugc-rate-calculator/        # Tool 4: UGC Bundle Pricing & Licensing Engine
 ├── /inflation-budget-tool/      # Tool 5: 50/30/20 Cost-of-Living Matrix Slider
-└── /crypto-profit-calculator/   # Tool 6: Crypto Yield & Capital Gains Tax Modeler
+├── /crypto-profit-calculator/   # Tool 6: Crypto Yield & Capital Gains Tax Modeler
+└── /geo-arbitrage-calculator/   # Tool 7: Remote Worker Geo-Arbitrage Cost Modeler
 ```
 
 ---
@@ -49,4 +50,4 @@ To clone, test, or run this absolute financial hub and its complete catalog of s
 
 ## ⚖️ License & Attribution
 
-This interactive open-source catalog is maintained by **Muhammad Azam**. All structural layout layers, dynamic calculator scripts, and optimization loops are completely open for public adaptation, development updates, and educational open-source repository forks.
+This open-source catalog is maintained by **Muhammad Azam**. All structural layout layers, dynamic calculator scripts, and optimization loops are completely open for public adaptation, development updates, and educational open-source repository forks.
