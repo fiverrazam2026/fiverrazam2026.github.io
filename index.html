@@ -3,319 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTech Core | Premium Web Utility Dashboard</title>
-    
-    <!-- PINTEREST VERIFICATION META TAG -->
-    <meta name="p:domain_verify" content="5c5379ee74e67535854d7e9be6faab3b"/>
-
+    <title>SmartTech Core Dashboard</title>
     <style>
-        /* Modern 3D Cyberpunk & Matrix Fusion Theme Architecture */
         :root {
-            --bg-dark: #05070c;
-            --panel-bg: rgba(13, 18, 30, 0.75);
-            --border-glow: #1e293b;
-            --text-glow: #f8fafc;
-            --text-dim: #64748b;
-            
-            /* Dynamic Category Accent Palette */
-            --c-finance: #00ff66;
-            --c-creator: #ff007f;
-            --c-tech: #38bdf8;
-            --c-active: #38bdf8;
+            --bg-dark: #07090e;
+            --card-bg: rgba(13, 18, 30, 0.45);
+            --border-glow: rgba(0, 255, 204, 0.25);
+            --neon-cyan: #00ffcc;
+            --neon-blue: #3b82f6;
+            --neon-pink: #ec4899;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            user-select: none;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
-            color: #fff;
+            color: var(--text-light);
             min-height: 100vh;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.04) 0%, transparent 40%);
-            perspective: 1000px;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Ambient Cyber Grid Animation Background Overlay */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(rgba(18, 24, 38, 0) 96%, rgba(56, 189, 248, 0.04) 96%),
-                        linear-gradient(90deg, rgba(18, 24, 38, 0) 96%, rgba(56, 189, 248, 0.04) 96%);
-            background-size: 30px 30px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Container Alignment Frame */
-        .wrapper {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px 120px 20px;
-        }
-
-        /* 3D Glassmorphic Header Frame Panel */
-        header {
+        /* --- HEADER AREA --- */
+        .header-container {
             text-align: center;
-            padding: 40px;
-            background: var(--panel-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            backdrop-filter: blur(16px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
-            animation: scanning-light 6s infinite linear;
-        }
-
-        @keyframes scanning-light {
-            0% { left: -100%; } 100% { left: 200%; }
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #fff 30%, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
             max-width: 600px;
-            margin: 0 auto 30px auto;
+            margin-bottom: 2.5rem;
+            background: rgba(15, 22, 36, 0.6);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-container h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        .header-container p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
-        /* Advanced Category Segmentation Filtration Interface Control Block */
-        .filter-controls {
+        /* --- SYSTEM FILTER CATEGORY BUTTONS --- */
+        .filter-dock {
             display: flex;
-            justify-content: center;
-            gap: 12px;
+            gap: 10px;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .filter-btn {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-dim);
-            padding: 10px 24px;
-            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-transform: uppercase;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
             letter-spacing: 0.5px;
         }
 
         .filter-btn:hover {
+            border-color: rgba(255, 255, 255, 0.3);
             color: #fff;
-            border-color: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
         }
 
-        .filter-btn.active[data-target="all"] { background: #fff; color: #000; border-color: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-        .filter-btn.active[data-target="finance"] { background: var(--c-finance); color: #000; border-color: var(--c-finance); box-shadow: 0 0 20px rgba(0,255,102,0.2); }
-        .filter-btn.active[data-target="creator"] { background: var(--c-creator); color: #fff; border-color: var(--c-creator); box-shadow: 0 0 20px rgba(255,0,127,0.2); }
-        .filter-btn.active[data-target="tech"] { background: var(--c-tech); color: #000; border-color: var(--c-tech); box-shadow: 0 0 20px rgba(56,189,248,0.2); }
-        .filter-btn.active[data-target="portfolio"] { background: #a855f7; color: #fff; box-shadow: 0 0 20px rgba(168,85,247,0.2); }
-
-        /* Passive Monetag Header Tracking Space Block */
-        .ad-container-top {
-            width: 100%;
-            max-width: 728px;
-            min-height: 90px;
-            margin: 0 auto 40px auto;
-            border: 1px dashed rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            background: rgba(255,255,255,0.01);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+        .filter-btn.active {
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
-        /* Premium 3D Interactive Card Grid Matrix Layout Layout */
-        .grid-matrix {
+        /* --- 3D INTERACTIVE APP GRID --- */
+        .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 2rem;
+            perspective: 1000px;
         }
 
-        .matrix-card[data-cat="portfolio"]:hover { border-color: #a855f7; box-shadow: 0 15px 40px -15px rgba(168,85,247,0.2); }
+        .app-card-wrapper {
+            transition: transform 0.15s ease-out;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
 
-        .matrix-card {
-            background: var(--panel-bg);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 32px;
-            text-decoration: none;
-            color: inherit;
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            height: 100%;
+            min-height: 240px;
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(12px);
-            transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             transform-style: preserve-3d;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* 3D Depth Elements */
-        .matrix-card * {
+        .app-card-wrapper:hover .app-card {
+            border-color: var(--border-glow);
+            box-shadow: 0 15px 35px rgba(0, 255, 204, 0.1);
+        }
+
+        /* --- APP BADGES --- */
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            transform: translateZ(20px);
+        }
+
+        .badge-tech { background: rgba(59, 130, 246, 0.15); color: var(--neon-blue); }
+        .badge-web { background: rgba(236, 72, 153, 0.15); color: var(--neon-pink); }
+        .badge-finance { background: rgba(0, 255, 204, 0.15); color: var(--neon-cyan); }
+        .badge-creator { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+
+        .app-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
             transform: translateZ(30px);
         }
 
-        .card-badge {
-            position: absolute;
-            top: 24px; right: 24px;
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .matrix-card h2 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin: 20px 0 12px 0;
-            color: var(--text-glow);
-        }
-
-        .matrix-card p {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            line-height: 1.5;
-            margin-bottom: 30px;
+        .app-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
             flex-grow: 1;
+            transform: translateZ(25px);
         }
 
-        .card-action-trigger {
-            font-size: 0.9rem;
-            font-weight: 700;
-            display: flex;
+        .launch-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            text-decoration: none;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            transition: gap 0.2s ease;
+            transform: translateZ(20px);
+            transition: color 0.2s ease;
+            cursor: pointer;
         }
 
-        .matrix-card:hover .card-action-trigger {
-            gap: 12px;
+        .launch-link:hover {
+            color: var(--neon-cyan);
         }
 
-        /* Theme Categories Class Hover Parameters */
-        .matrix-card[data-cat="finance"]:hover {
-            border-color: var(--c-finance);
-            box-shadow: 0 15px 40px -15px rgba(0, 255, 102, 0.2);
+        /* --- ENGINE STATE SYSTEM FILTER HACKS --- */
+        .app-card-wrapper.hidden-engine {
+            display: none !important;
         }
-        .matrix-card[data-cat="finance"] .card-action-trigger, .matrix-card[data-cat="finance"] .card-badge { color: var(--c-finance); }
-
-        .matrix-card[data-cat="creator"]:hover {
-            border-color: var(--c-creator);
-            box-shadow: 0 15px 40px -15px rgba(255, 0, 127, 0.2);
-        }
-        .matrix-card[data-cat="creator"] .card-action-trigger, .matrix-card[data-cat="creator"] .card-badge { color: var(--c-creator); }
-
-        .matrix-card[data-cat="tech"]:hover {
-            border-color: var(--c-tech);
-            box-shadow: 0 15px 40px -15px rgba(56, 189, 248, 0.2);
-        }
-        .matrix-card[data-cat="tech"] .card-action-trigger, .matrix-card[data-cat="tech"] .card-badge { color: var(--c-tech); }
-
-        /* Sticky Footer Ad Shell Panel Container */
-        #fixed-bottom-bar {
-            position: fixed;
-            bottom: 0; left: 0; width: 100%;
-            background: #03050a;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 99999;
-        }
-
-                        /* Custom Interactive Styling for Web Template Cards */
-                .filter-btn.active[data-target="portfolio"] { 
-                    background: #a855f7; 
-                    color: #fff; 
-                    border-color: #a855f7; 
-                    box-shadow: 0 0 20px rgba(168,85,247,0.3); 
-                }
-                
-                .matrix-card[data-cat="portfolio"]:hover { 
-                    border-color: #a855f7; 
-                    box-shadow: 0 15px 40px -15px rgba(168, 85, 247, 0.3); 
-                }
-                
-                .matrix-card[data-cat="portfolio"] .card-action-trigger, 
-                .matrix-card[data-cat="portfolio"] .card-badge { 
-                    color: #a855f7; 
-                }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1>SMARTTECH CORE</h1>
-            <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
-            
-            <!-- CATEGORY INTERACTIVE INTERFACE CONTROLS -->
-        <div class="filter-controls">
-            <button class="filter-btn active" data-target="all">All Ecosystem</button>
-            <button class="filter-btn" data-target="finance">Finance Matrices</button>
-            <button class="filter-btn" data-target="creator">Creator Tools</button>
-            <button class="filter-btn" data-target="tech">Advanced Tech</button>
-            <!-- ADD THIS BUTTON FOR YOUR NEW CATEGORY -->
-            <button class="filter-btn" data-target="portfolio">Web Templates</button>
+    <!-- CENTRAL WORKSPACE HEADER BLOCK -->
+    <header class="header-container">
+        <h1>SmartTech Core</h1>
+        <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
+        
+        <!-- UI FILTRATION DOCK COMPONENT -->
+        <div class="filter-dock">
+            <button class="filter-btn active" onclick="filterSystem('all', this)">All Ecosystem</button>
+            <button class="filter-btn" onclick="filterSystem('finance', this)">Finance Matrices</button>
+            <button class="filter-btn" onclick="filterSystem('creator', this)">Creator Tools</button>
+            <button class="filter-btn" onclick="filterSystem('tech', this)">Advanced Tech</button>
+            <button class="filter-btn" onclick="filterSystem('web-templates', this)">Web Templates</button>
         </div>
-                </header>
+    </header>
 
-        <!-- TOP MONETAG AD ZONE IMPRESSION TARGET CONTAINER -->
-        <div id="monetag-banner-top" class="ad-container-top"></div>
+    <!-- INTERACTIVE DASHBOARD ENVIRONMENT GRID -->
+    <main class="dashboard-grid">
 
-        <!-- MAIN INTERACTIVE GRID LAYER -->
-        <div class="grid-matrix" id="utility-grid">
-                        <!-- CARD 10: AI AGENCY PRICING ENGINE -->
-            <div class="matrix-card" data-cat="tech" onclick="openEngine('app-ai', '#38bdf8')">
-                <span class="card-badge">Tech</span>
-                <h2>AI Automation Pricing Engine</h2>
-                <p>Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
-                <div class="matrix-action card-action-trigger">Launch Application &rarr;</div>
+        <!-- CARD 1: TECH ENGINE -->
+        <div class="app-card-wrapper" data-category="tech">
+            <div class="app-card">
+                <span class="card-badge badge-tech">Tech</span>
+                <h2 class="app-title">AI Automation Pricing Engine</h2>
+                <p class="app-description">Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
+                <div class="launch-link" onclick="alert('Launching AI Pricing Module...')">Launch Application &rarr;</div>
             </div>
+        </div>
 
-            <!-- PASTE YOUR NEW WEB TEMPLATE CARD RIGHT HERE -->
-            <a href="./premium-landing-template/" class="matrix-card" data-cat="portfolio"> 
-                <span class="card-badge">Web Templates</span> 
-                <h2>Cyberpunk Portfolio UI</h2> 
-                <p>Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p> 
-                <div class="card-action-trigger">Launch Application &rarr;</div> 
-            </a>
+        <!-- CARD 2: WEB TEMPLATE ENGINE -->
+        <div class="app-card-wrapper" data-category="web-templates">
+            <div class="app-card">
+                <span class="card-badge badge-web">Web Templates</span>
+                <h2 class="app-title">Cyberpunk Portfolio UI</h2>
+                <p class="app-description">Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p>
+                <div class="launch-link" onclick="alert('Launching Cyberpunk UI Layout...')">Launch Application &rarr;</div>
+            </div>
+        </div>
 
-        </div> <!-- This is the closing tag for id="utility-grid" -->
+        <!-- CARD 3: FINANCE ENGINE -->
+        <div class="app-card-wrapper" data-category="finance">
+            <div class="app-card">
+                <span class="card-badge badge-finance">Finance</span>
+                <h2 class="app-title">Freelance Rate Calculator</h2>
+                <p class="app-description">Analyze business operational costs, local tax commitments, and margin rates to accurately calculate billable hours.</p>
+                <div class="launch-link" onclick="alert('Launching Freelance Rate Engine...')">Launch Application &rarr;</div>
+            </div>
+        </div>
 
+        <!-- CARD 4: CREATOR ENGINE -->
+        <div class="app-card-wrapper" data-category="creator">
+            <div class="app-card">
+                <span class="card-badge badge-creator">Creator</span>
+                <h2 class="app-title">Views Earnings Estimator</h2>
+                <p class="app-description">Input real-time visual impressions to evaluate custom payout milestones across multi-tier content platforms.</p>
+                <div class="launch-link" onclick="alert('Launching Earnings Estimator...')">Launch Application &rarr;</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- --- PRODUCTION JAVASCRIPT LOGIC --- -->
+    <script>
+        /* ==========================================================================
+           1. REAL-TIME SYNCHRONIZED APP FILTRATION SYSTEM
+           ========================================================================== */
+        function filterSystem(targetCategory, triggerButton) {
+            // Update active state on the navigation filter dock buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            triggerButton.classList.add('active');
+
+            const dynamicCards = document.querySelectorAll('.app-card-wrapper');
+            
+            dynamicCards.forEach(card => {
+                const itemCategory = card.getAttribute('data-category');
