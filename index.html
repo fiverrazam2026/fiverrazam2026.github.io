@@ -3,275 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTech Core</title>
+    <title>SmartTech Templates | Free Web Utility Tools</title>
+    
+    <!-- PINTEREST VERIFICATION META TAG (CRITICAL FOR CLAIMING) -->
+    <meta name="p:domain_verify" content="5c5379ee74e67535854d7e9be6faab3b"/>
+
     <style>
+        /* Deep Space Dark Slate Blue Aesthetic matching your brand architecture */
         :root {
-            --bg-dark: #090d16;
-            --container-bg: rgba(13, 20, 35, 0.4);
-            --card-bg: rgba(18, 26, 46, 0.5);
-            --neon-blue: #3b82f6;
-            --neon-pink: #ec4899;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 3rem 1.5rem;
-            background-image: radial-gradient(circle at top, rgba(59, 130, 246, 0.08), transparent 60%);
+            padding: 40px 20px;
         }
 
-        /* --- DASHBOARD HEADER --- */
-        .dashboard-header {
+        header {
             text-align: center;
-            background: var(--container-bg);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(16px);
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            max-width: 720px;
-            width: 100%;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            max-width: 600px;
         }
 
-        .dashboard-header h1 {
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
             font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: #fff;
+            letter-spacing: -0.025em;
         }
 
-        .dashboard-header p {
-            font-size: 0.85rem;
+        header h1 span {
+            color: var(--primary);
+        }
+
+        header p {
+            font-size: 1.1rem;
             color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
-        /* --- FILTER SYSTEM DOCK --- */
-        .filter-dock {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-muted);
-            padding: 0.5rem 1.2rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            letter-spacing: 0.5px;
-        }
-
-        .filter-btn:hover {
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .filter-btn.active {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-        }
-
-        /* --- 3D INTERACTIVE CARD GRID --- */
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
+        /* Ad Frame Placements */
+        .ad-banner-block {
             width: 100%;
-            max-width: 1050px;
-            perspective: 1000px; /* Required layout parameter for 3D scripts */
-        }
-
-        .card-wrapper {
-            transition: transform 0.15s ease-out;
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        .app-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-width: 728px;
+            min-height: 90px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-color);
             border-radius: 12px;
-            padding: 2.2rem 2rem;
-            height: 100%;
-            min-height: 230px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        /* Tool Grid Matrix */
+        .grid-container {
+            width: 100%;
+            max-width: 900px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
             position: relative;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            transform-style: preserve-3d;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
-        .card-wrapper:hover .app-card {
-            border-color: rgba(0, 255, 204, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.06);
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.15);
         }
 
-        /* --- TAG SYSTEM METRICS --- */
-        .card-tag {
+        .tool-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 0.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            transform: translateZ(15px);
-        }
-
-        .tag-tech { background: rgba(59, 130, 246, 0.1); color: var(--neon-blue); }
-        .tag-web { background: rgba(236, 72, 153, 0.1); color: var(--neon-pink); }
-        .tag-finance { background: rgba(16, 185, 129, 0.1); color: #10b981; }
-        .tag-creator { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-
-        .app-title {
-            font-size: 1.2rem;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            font-size: 0.75rem;
             font-weight: 700;
-            margin-top: 0.5rem;
-            margin-bottom: 0.75rem;
-            color: #fff;
-            transform: translateZ(25px);
+            padding: 4px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
         }
 
-        .app-desc {
-            font-size: 0.85rem;
+        .tool-card.pink-theme:hover {
+            border-color: #ff007f;
+            box-shadow: 0 12px 30px -10px rgba(255, 0, 127, 0.15);
+        }
+        .tool-card.pink-theme .tool-badge {
+            background: rgba(255, 0, 127, 0.1);
+            color: #ff007f;
+        }
+
+        .tool-card.green-theme:hover {
+            border-color: #00ff66;
+            box-shadow: 0 12px 30px -10px rgba(0, 255, 102, 0.15);
+        }
+        .tool-card.green-theme .tool-badge {
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+        }
+
+        .tool-card h2 {
+            font-size: 1.35rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            margin-top: 10px;
+        }
+
+        .tool-card p {
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 2rem;
+            line-height: 1.5;
+            margin-bottom: 24px;
             flex-grow: 1;
-            transform: translateZ(20px);
         }
 
-        .launch-btn {
-            font-size: 0.8rem;
+        .action-link {
+            font-size: 0.95rem;
             font-weight: 600;
-            color: var(--neon-blue);
-            text-decoration: none;
-            display: inline-flex;
+            color: var(--primary);
+            display: flex;
             align-items: center;
-            gap: 4px;
-            transform: translateZ(15px);
-            transition: color 0.2s ease;
-            cursor: pointer;
-            width: fit-content;
         }
 
-        .launch-btn:hover {
-            color: #00ffcc;
+        .pink-theme .action-link { color: #ff007f; }
+        .green-theme .action-link { color: #00ff66; }
+
+        .action-link::after {
+            content: " →";
+            transition: transform 0.2s;
         }
 
-        /* --- ENGINE STATE SYSTEM FILTER HACKS --- */
-        .card-wrapper.hidden-engine {
-            display: none !important;
+        .tool-card:hover .action-link::after {
+            transform: translateX(4px);
+        }
+
+        /* Sticky Footer Monetag Layout Wrapper */
+        #sticky-bottom-frame {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #090d16;
+            border-top: 1px solid var(--border-color);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
         }
     </style>
 </head>
 <body>
 
-    <!-- COMPONENT HEADER ACCORDING TO LIVE LOOK -->
-    <header class="dashboard-header">
-        <h1>SmartTech Core</h1>
-        <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
-        
-        <!-- COMPONENT FILTER BUTTON DOCK -->
-        <div class="filter-dock">
-            <button class="filter-btn active" onclick="executeFilter('all', this)">All Ecosystem</button>
-            <button class="filter-btn" onclick="executeFilter('finance', this)">Finance Matrices</button>
-            <button class="filter-btn" onclick="executeFilter('creator', this)">Creator Tools</button>
-            <button class="filter-btn" onclick="executeFilter('tech', this)">Advanced Tech</button>
-            <button class="filter-btn" onclick="executeFilter('web-templates', this)">Web Templates</button>
-        </div>
+    <header>
+        <h1>SmartTech <span>Utility Hub</span></h1>
+        <p>Premium, high-performance web applications designed to model financial goals, creator revenue mechanics, and runway calculations live.</p>
     </header>
 
-    <!-- CORE INTERACTIVE ENGINE APP GRID -->
-    <main class="app-grid">
+    <!-- TOP MONETAG IMPRESSION HEADER CONTAINER -->
+    <div id="monetag-banner-top" class="ad-banner-block">
+        <!-- System automatically anchors ad tags here -->
+    </div>
 
-        <!-- CARD 1: ADVANCED TECH -->
-        <div class="card-wrapper" data-category="tech">
-            <div class="app-card">
-                <span class="card-tag tag-tech">Tech</span>
-                <h2 class="app-title">AI Automation Pricing Engine</h2>
-                <p class="app-desc">Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
-                <div class="launch-btn">Launch Application &rarr;</div>
-            </div>
+    <!-- MAIN INTERACTIVE PORTAL GRID -->
+    <div class="grid-container">
+        
+        <!-- CARD 1: FREELANCE ENGINE (Redirects to repository sub-site deployment) -->
+        <a href="./freelance-calculator/" class="tool-card">
+            <span class="tool-badge">Rates</span>
+            <h2>Freelance Rate Engine</h2>
+            <p>Calculate required global hourly rates based on custom annual profit benchmarks, taxes, and monthly operations bills.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 2: SOCIAL EARNINGS -->
+        <a href="./social-media-calculator/" class="tool-card pink-theme">
+            <span class="tool-badge">Creator</span>
+            <h2>Views Earnings Estimator</h2>
+            <p>Model custom social media traffic RPM pools directly alongside fixed corporate contract sponsor pricing tiers.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 3: RUNWAY CALCULATOR -->
+        <a href="./side-hustle-runway/" class="tool-card green-theme">
+            <span class="tool-badge">Runway</span>
+            <h2>Tax &amp; Savings Matrix</h2>
+            <p>Calculate absolute runway months and evaluate self-employment baseline tax allocations instantly.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+    </div>
+
+    <!-- FOOTER STICKY MONETAG PLACEMENT VIEW -->
+    <div id="sticky-bottom-frame">
+        <div id="monetag-banner-bottom" style="width:100%; max-width:468px; min-height:60px; text-align:center;">
+            <!-- Ad container baseline layer -->
         </div>
+    </div>
 
-        <!-- CARD 2: WEB TEMPLATES -->
-        <div class="card-wrapper" data-category="web-templates">
-            <div class="app-card">
-                <span class="card-tag tag-web">Web Templates</span>
-                <h2 class="app-title">Cyberpunk Portfolio UI</h2>
-                <p class="app-desc">Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p>
-                <div class="launch-btn">Launch Application &rarr;</div>
-            </div>
-        </div>
+    <!-- ========================================== -->
+    <!-- MONETAG MONETIZATION INJECTION ENGINE ZONE -->
+    <!-- ========================================== -->
 
-        <!-- CARD 3: FINANCE MATRICES -->
-        <div class="card-wrapper" data-category="finance">
-            <div class="app-card">
-                <span class="card-tag tag-finance">Finance</span>
-                <h2 class="app-title">Freelance Rate Matrix Engine</h2>
-                <p class="app-desc">Track core business cash operational costs, local tax commitments, and margin rates to accurately optimize target billable hours.</p>
-                <div class="launch-btn">Launch Application &rarr;</div>
-            </div>
-        </div>
-
-        <!-- CARD 4: CREATOR TOOLS -->
-        <div class="card-wrapper" data-category="creator">
-            <div class="app-card">
-                <span class="card-tag tag-creator">Creator</span>
-                <h2 class="app-title">Views Earnings Estimator</h2>
-                <p class="app-desc">Input real-time content engagement metrics to evaluate custom brand deals and platform payout milestones live.</p>
-                <div class="launch-btn">Launch Application &rarr;</div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- --- SECURE VANILLA JAVASCRIPT LAYER --- -->
-    <script>
-        /* ==========================================================================
-           1. SYNCHRONIZED APP FILTRATION ENGINE (FIXED)
-           ========================================================================== */
-        function executeFilter(selectedCategory, element) {
-            // Update selected button class lists
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-
-            // Select all target card elements safely
-            const targetCards = document.querySelectorAll('.card-wrapper');
-            
-            targetCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
+    <!-- In-Page Push / Banner Ad Zone Script (Zone ID: 11267460) -->
+    <script type="text/javascript">
+        (function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://zovidree.com||document.documentElement);
     </script>
-                
+
+    <!-- Onclick (Popunder) Tracking Native Script (Zone ID: 11267400) -->
+    <script type="text/javascript">
+        (function(s,u,z,p){s.src=u;s.setAttribute('data-zone',z);p.appendChild(s);})(document.createElement('script'),'https://zovidree.com||document.documentElement);
+    </script>
+
+</body>
+</html>
