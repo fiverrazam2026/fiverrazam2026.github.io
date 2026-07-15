@@ -20,7 +20,9 @@ The root directory serves as a high-performance router portal directing inbound 
 ├── /inflation-budget-tool/      # Tool 5: 50/30/20 Cost-of-Living Matrix Slider
 ├── /crypto-profit-calculator/   # Tool 6: Crypto Yield & Capital Gains Tax Modeler
 ├── /geo-arbitrage-calculator/   # Tool 7: Remote Worker Geo-Arbitrage Cost Modeler
-└── /side-hustle-roi/            # Tool 8: Side Hustle Burnout & True ROI Engine
+├── /side-hustle-roi/            # Tool 8: Side Hustle Burnout & True ROI Engine
+├── /passive-income-modeler/     # Tool 9: Passive Income Unit & Velocity Modeler
+└── /ai-agency-calculator/       # Tool 10: B2B AI Agency & SaaS Contract Pricing Engine
 ```
 
 ---
