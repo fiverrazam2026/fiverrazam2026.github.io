@@ -19,7 +19,8 @@ The root directory serves as a high-performance router portal directing inbound 
 ├── /ugc-rate-calculator/        # Tool 4: UGC Bundle Pricing & Licensing Engine
 ├── /inflation-budget-tool/      # Tool 5: 50/30/20 Cost-of-Living Matrix Slider
 ├── /crypto-profit-calculator/   # Tool 6: Crypto Yield & Capital Gains Tax Modeler
-└── /geo-arbitrage-calculator/   # Tool 7: Remote Worker Geo-Arbitrage Cost Modeler
+├── /geo-arbitrage-calculator/   # Tool 7: Remote Worker Geo-Arbitrage Cost Modeler
+└── /side-hustle-roi/            # Tool 8: Side Hustle Burnout & True ROI Engine
 ```
 
 ---
