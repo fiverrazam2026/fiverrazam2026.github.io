@@ -3,260 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartTech Tools | Multi-App Dashboard Hub</title>
+    <title>SmartTech Core | Premium Web Utility Dashboard</title>
+    
+    <!-- PINTEREST VERIFICATION META TAG -->
+    <meta name="p:domain_verify" content="5c5379ee74e67535854d7e9be6faab3b"/>
+
     <style>
-        /* --- GLOBAL BASE HYPER-STYLING --- */
+        /* Modern 3D Cyberpunk & Matrix Fusion Theme Architecture */
         :root {
-            --bg-workspace: #0b0f19;
-            --glass-base: rgba(17, 24, 39, 0.55);
-            --border-brutal: #00ffcc;
-            --neon-accent: #00ffcc;
-            --neon-pink: #ff007f;
-            --text-main: #f3f4f6;
-            --shadow-flat: 8px 8px 0px 0px rgba(0, 255, 204, 0.3);
+            --bg-dark: #05070c;
+            --panel-bg: rgba(13, 18, 30, 0.75);
+            --border-glow: #1e293b;
+            --text-glow: #f8fafc;
+            --text-dim: #64748b;
+            
+            /* Dynamic Category Accent Palette */
+            --c-finance: #00ff66;
+            --c-creator: #ff007f;
+            --c-tech: #38bdf8;
+            --c-active: #38bdf8;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            -webkit-font-smoothing: antialiased;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            user-select: none;
         }
 
         body {
-            background-color: var(--bg-workspace);
-            background-image: 
-                radial-gradient(at 10% 20%, rgba(255, 0, 127, 0.1) 0px, transparent 50%),
-                radial-gradient(at 90% 80%, rgba(0, 255, 204, 0.12) 0px, transparent 50%);
-            color: var(--text-main);
+            background-color: var(--bg-dark);
+            color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
-            padding: 2rem 1rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.04) 0%, transparent 40%);
+            perspective: 1000px;
         }
 
+        /* Ambient Cyber Grid Animation Background Overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(rgba(18, 24, 38, 0) 96%, rgba(56, 189, 248, 0.04) 96%),
+                        linear-gradient(90deg, rgba(18, 24, 38, 0) 96%, rgba(56, 189, 248, 0.04) 96%);
+            background-size: 30px 30px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Container Alignment Frame */
+        .wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 120px 20px;
+        }
+
+        /* 3D Glassmorphic Header Frame Panel */
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            padding: 40px;
+            background: var(--panel-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.1), transparent);
+            animation: scanning-light 6s infinite linear;
+        }
+
+        @keyframes scanning-light {
+            0% { left: -100%; } 100% { left: 200%; }
         }
 
         header h1 {
             font-size: 2.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 3px 3px 0px var(--neon-pink);
-            margin-bottom: 0.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #fff 30%, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
-            color: #9ca3af;
+            color: var(--text-dim);
             font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
         }
 
-        /* --- CATEGORY INTERACTIVE FILTRATION FILTER TABS --- */
-        .filter-container {
+        /* Advanced Category Segmentation Filtration Interface Control Block */
+        .filter-controls {
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 3.5rem;
             flex-wrap: wrap;
         }
 
         .filter-btn {
-            background: var(--glass-base);
-            border: 2px solid var(--text-main);
-            color: var(--text-main);
-            padding: 0.6rem 1.4rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
+            padding: 10px 24px;
+            font-size: 0.9rem;
             font-weight: 700;
-            text-transform: uppercase;
+            border-radius: 9999px;
             cursor: pointer;
-            letter-spacing: 1px;
-            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 3px 3px 0px #fff;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--border-brutal);
-            color: #000;
-            border-color: #000;
-            box-shadow: 4px 4px 0px var(--neon-pink);
-            transform: translate(-2px, -2px);
+        .filter-btn:hover {
+            color: #fff;
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
 
-        /* --- STYLES FOR THE 3D INTERACTIVE APP ENVIRONMENT MATRIX --- */
-        .dashboard-grid {
+        .filter-btn.active[data-target="all"] { background: #fff; color: #000; border-color: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+        .filter-btn.active[data-target="finance"] { background: var(--c-finance); color: #000; border-color: var(--c-finance); box-shadow: 0 0 20px rgba(0,255,102,0.2); }
+        .filter-btn.active[data-target="creator"] { background: var(--c-creator); color: #fff; border-color: var(--c-creator); box-shadow: 0 0 20px rgba(255,0,127,0.2); }
+        .filter-btn.active[data-target="tech"] { background: var(--c-tech); color: #000; border-color: var(--c-tech); box-shadow: 0 0 20px rgba(56,189,248,0.2); }
+
+        /* Passive Monetag Header Tracking Space Block */
+        .ad-container-top {
+            width: 100%;
+            max-width: 728px;
+            min-height: 90px;
+            margin: 0 auto 40px auto;
+            border: 1px dashed rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            background: rgba(255,255,255,0.01);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Premium 3D Interactive Card Grid Matrix Layout Layout */
+        .grid-matrix {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1300px;
-            margin: 0 auto;
-            perspective: 1000px; /* Essential 3D viewport activation */
+            gap: 30px;
         }
 
-        /* --- ADVANCED 3D GLASSMORPHIC NEO-BRUTALIST CARD LAYERING --- */
-        .app-card-wrapper {
-            transition: transform 0.15s ease-out;
-            transform-style: preserve-3d; /* Forces children components to render along Z-Axis */
-        }
-
-        .app-card {
-            background: var(--glass-base);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            border: 3px solid #000;
-            padding: 2rem;
-            height: 100%;
+        .matrix-card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 32px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
             position: relative;
-            box-shadow: var(--shadow-flat);
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
             transform-style: preserve-3d;
-            transition: box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
-        /* Brutalist state updates on native wrapper focus elements */
-        .app-card-wrapper:hover .app-card {
-            border-color: var(--border-brutal);
-            box-shadow: 12px 12px 0px 0px rgba(255, 0, 127, 0.4);
+        /* 3D Depth Elements */
+        .matrix-card * {
+            transform: translateZ(30px);
         }
 
-        /* Push elements out in 3D Space using transform translateZ */
         .card-badge {
             position: absolute;
-            top: -12px;
-            left: 15px;
-            background: var(--neon-pink);
-            color: #fff;
-            border: 2px solid #000;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
+            top: 24px; right: 24px;
+            font-size: 0.7rem;
             font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 9999px;
             text-transform: uppercase;
-            box-shadow: 2px 2px 0px #000;
-            transform: translateZ(35px); /* Suspended high above base card surface */
+            letter-spacing: 0.5px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .app-title {
+        .matrix-card h2 {
             font-size: 1.4rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.8rem;
-            color: #fff;
-            text-transform: uppercase;
-            transform: translateZ(40px); /* Primary floating tracking layer */
+            font-weight: 800;
+            margin: 20px 0 12px 0;
+            color: var(--text-glow);
         }
 
-        .app-description {
+        .matrix-card p {
             font-size: 0.95rem;
-            color: #d1d5db;
+            color: var(--text-dim);
             line-height: 1.5;
-            margin-bottom: 1.5rem;
-            transform: translateZ(25px);
+            margin-bottom: 30px;
+            flex-grow: 1;
         }
 
-        /* High utility programmatic input modules within the card */
-        .calculator-engine-block {
-            transform: translateZ(30px);
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 4px;
+        .card-action-trigger {
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
         }
 
-        /* --- SYSTEM HIDDEN STATE HACKS --- */
-        .app-card-wrapper.hidden-engine {
-            display: none !important;
+        .matrix-card:hover .card-action-trigger {
+            gap: 12px;
+        }
+
+        /* Theme Categories Class Hover Parameters */
+        .matrix-card[data-cat="finance"]:hover {
+            border-color: var(--c-finance);
+            box-shadow: 0 15px 40px -15px rgba(0, 255, 102, 0.2);
+        }
+        .matrix-card[data-cat="finance"] .card-action-trigger, .matrix-card[data-cat="finance"] .card-badge { color: var(--c-finance); }
+
+        .matrix-card[data-cat="creator"]:hover {
+            border-color: var(--c-creator);
+            box-shadow: 0 15px 40px -15px rgba(255, 0, 127, 0.2);
+        }
+        .matrix-card[data-cat="creator"] .card-action-trigger, .matrix-card[data-cat="creator"] .card-badge { color: var(--c-creator); }
+
+        .matrix-card[data-cat="tech"]:hover {
+            border-color: var(--c-tech);
+            box-shadow: 0 15px 40px -15px rgba(56, 189, 248, 0.2);
+        }
+        .matrix-card[data-cat="tech"] .card-action-trigger, .matrix-card[data-cat="tech"] .card-badge { color: var(--c-tech); }
+
+        /* Sticky Footer Ad Shell Panel Container */
+        #fixed-bottom-bar {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: #03050a;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SmartTech Matrix</h1>
-        <p>Unified Workspace Module Systems & Premium Interactive Web Calculators</p>
-    </header>
-
-    <!-- UI FILTRATION TAG CONTROL DOCK -->
-    <div class="filter-container">
-        <button class="filter-btn active" onclick="filterSystem('all', this)">All Engines</button>
-        <button class="filter-btn" onclick="filterSystem('finance', this)">Finance</button>
-        <button class="filter-btn" onclick="filterSystem('creator', this)">Creator</button>
-        <button class="filter-btn" onclick="filterSystem('tech', this)">Tech Category</button>
-        <button class="filter-btn" onclick="filterSystem('digital-assets', this)">Digital Assets</button>
-    </div>
-
-    <!-- MAIN GRAPHICS COMPONENT MATRIX GRID -->
-    <main class="dashboard-grid" id="masterGrid">
-
-        <!-- CORE CARD BLOCK 1: FINANCE -->
-        <div class="app-card-wrapper" data-engine-category="finance">
-            <div class="app-card">
-                <span class="card-badge">Finance Matrix</span>
-                <h2 class="app-title">Freelance Rate Engine</h2>
-                <p class="app-description">Compute production rate balances, margin metrics, and target tax liabilities in real time.</p>
-                <div class="calculator-engine-block">
-                    <!-- Target computations populate smoothly here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- CORE CARD BLOCK 2: CREATOR -->
-        <div class="app-card-wrapper" data-engine-category="creator">
-            <div class="app-card">
-                <span class="card-badge">Creator Analytics</span>
-                <h2 class="app-title">Views Earnings Estimator</h2>
-                <p class="app-description">Project estimated monetization payments generated via ad platform impressions.</p>
-                <div class="calculator-engine-block">
-                    <!-- Target computations populate smoothly here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- CORE CARD BLOCK 3: TECH -->
-        <div class="app-card-wrapper" data-engine-category="tech">
-            <div class="app-card">
-                <span class="card-badge">Automation Scale</span>
-                <h2 class="app-title">AI Pricing Matrix</h2>
-                <p class="app-description">Analyze development work timelines to price workflow engineering solutions effectively.</p>
-                <div class="calculator-engine-block">
-                    <!-- Target computations populate smoothly here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- NEW CORE CARD BLOCK 4: DIGITAL ASSETS -->
-        <div class="app-card-wrapper" data-engine-category="digital-assets">
-            <div class="app-card">
-                <span class="card-badge">Asset Matrix</span>
-                <h2 class="app-title">Digital Product ROI</h2>
-                <p class="app-description">Optimize price configurations and model structural landing conversion metrics.</p>
-                <div class="calculator-engine-block">
-                    <!-- Target computations populate smoothly here -->
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- --- RECONSTRUCTED HIGH-PERFORMANCE SCRIPTS --- -->
-    <script>
-        /* ==========================================================================
-           1. REAL-TIME MULTI-CATEGORY FILTRATION SYSTEM ENGINE 
-           ========================================================================== */
-        function filterSystem(targetCategory, triggerButton) {
-            // Update active state visual bindings across filter dock buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            triggerButton.classList.add('active');
-
-            const applicationCards = document.querySelectorAll('.app-card-wrapper');
+    <div class="wrapper">
+        <header>
+            <h1>SMARTTECH CORE</h1>
+            <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
             
-            applicationCards.forEach(cardWrapper => {
-                const innerCardCategory = cardWrapper.getAttribute('data-engine-category');
-                
-                // Real-time conditional filter pass gate validation
-                if (targetCategory === 'all' || innerCardCategory === targetCategory) {
-                    cardWrapper.classList.remove('hidden-engine');
-                } else {
-                    cardWrapper.classList.add('hidden-engine');
-                }
-            });
-        }
+            <!-- CATEGORY INTERACTIVE INTERFACE CONTROLS -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-target="all">All Ecosystem</button>
+                <button class="filter-btn" data-target="finance">Finance Matrices</button>
+                <button class="filter-btn" data-target="creator">Creator Tools</button>
+                <button class="filter-btn" data-target="tech">Advanced Tech</button>
+            </div>
+        </header>
 
+        <!-- TOP MONETAG AD ZONE IMPRESSION TARGET CONTAINER -->
+        <div id="monetag-banner-top" class="ad-container-top"></div>
+
+        <!-- MAIN INTERACTIVE GRID LAYER -->
+        <div class="grid-matrix" id="utility-grid">
+            
+            <!-- CARD 1: FREELANCE ENGINE -->
