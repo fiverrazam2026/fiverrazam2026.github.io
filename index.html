@@ -139,6 +139,7 @@
         .filter-btn.active[data-target="finance"] { background: var(--c-finance); color: #000; border-color: var(--c-finance); box-shadow: 0 0 20px rgba(0,255,102,0.2); }
         .filter-btn.active[data-target="creator"] { background: var(--c-creator); color: #fff; border-color: var(--c-creator); box-shadow: 0 0 20px rgba(255,0,127,0.2); }
         .filter-btn.active[data-target="tech"] { background: var(--c-tech); color: #000; border-color: var(--c-tech); box-shadow: 0 0 20px rgba(56,189,248,0.2); }
+        .filter-btn.active[data-target="portfolio"] { background: #a855f7; color: #fff; box-shadow: 0 0 20px rgba(168,85,247,0.2); }
 
         /* Passive Monetag Header Tracking Space Block */
         .ad-container-top {
@@ -161,6 +162,8 @@
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
+
+        .matrix-card[data-cat="portfolio"]:hover { border-color: #a855f7; box-shadow: 0 15px 40px -15px rgba(168,85,247,0.2); }
 
         .matrix-card {
             background: var(--panel-bg);
@@ -255,6 +258,24 @@
             align-items: center;
             z-index: 99999;
         }
+
+                        /* Custom Interactive Styling for Web Template Cards */
+                .filter-btn.active[data-target="portfolio"] { 
+                    background: #a855f7; 
+                    color: #fff; 
+                    border-color: #a855f7; 
+                    box-shadow: 0 0 20px rgba(168,85,247,0.3); 
+                }
+                
+                .matrix-card[data-cat="portfolio"]:hover { 
+                    border-color: #a855f7; 
+                    box-shadow: 0 15px 40px -15px rgba(168, 85, 247, 0.3); 
+                }
+                
+                .matrix-card[data-cat="portfolio"] .card-action-trigger, 
+                .matrix-card[data-cat="portfolio"] .card-badge { 
+                    color: #a855f7; 
+                }
     </style>
 </head>
 <body>
@@ -265,18 +286,36 @@
             <p>Next-generation, browser-native computational matrix dashboards built to optimize operations, track capital yields, and evaluate creation pricing.</p>
             
             <!-- CATEGORY INTERACTIVE INTERFACE CONTROLS -->
-            <div class="filter-controls">
-                <button class="filter-btn active" data-target="all">All Ecosystem</button>
-                <button class="filter-btn" data-target="finance">Finance Matrices</button>
-                <button class="filter-btn" data-target="creator">Creator Tools</button>
-                <button class="filter-btn" data-target="tech">Advanced Tech</button>
-            </div>
-        </header>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-target="all">All Ecosystem</button>
+            <button class="filter-btn" data-target="finance">Finance Matrices</button>
+            <button class="filter-btn" data-target="creator">Creator Tools</button>
+            <button class="filter-btn" data-target="tech">Advanced Tech</button>
+            <!-- ADD THIS BUTTON FOR YOUR NEW CATEGORY -->
+            <button class="filter-btn" data-target="portfolio">Web Templates</button>
+        </div>
+                </header>
 
         <!-- TOP MONETAG AD ZONE IMPRESSION TARGET CONTAINER -->
         <div id="monetag-banner-top" class="ad-container-top"></div>
 
         <!-- MAIN INTERACTIVE GRID LAYER -->
         <div class="grid-matrix" id="utility-grid">
-            
-            <!-- CARD 1: FREELANCE ENGINE -->
+                        <!-- CARD 10: AI AGENCY PRICING ENGINE -->
+            <div class="matrix-card" data-cat="tech" onclick="openEngine('app-ai', '#38bdf8')">
+                <span class="card-badge">Tech</span>
+                <h2>AI Automation Pricing Engine</h2>
+                <p>Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
+                <div class="matrix-action card-action-trigger">Launch Application &rarr;</div>
+            </div>
+
+            <!-- PASTE YOUR NEW WEB TEMPLATE CARD RIGHT HERE -->
+            <a href="./premium-landing-template/" class="matrix-card" data-cat="portfolio"> 
+                <span class="card-badge">Web Templates</span> 
+                <h2>Cyberpunk Portfolio UI</h2> 
+                <p>Launch a fully premium, highly interactive open-source single-page landing site structure tailored for developers.</p> 
+                <div class="card-action-trigger">Launch Application &rarr;</div> 
+            </a>
+
+        </div> <!-- This is the closing tag for id="utility-grid" -->
+
