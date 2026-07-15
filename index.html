@@ -175,15 +175,16 @@
 
 .modal-image-mockup {
     display: block !important;
-    width: 100% !important;          /* Keeps the image filling the width of the popup */
-    height: auto !important;          /* 🌟 CRUCIAL: Fixes distortion by calculating aspect ratio perfectly */
-    max-height: 280px !important;    /* Keeps the image from becoming too tall vertically */
-    object-fit: contain !important;  /* 🌟 CRUCIAL: Shows your whole screen capture without clipping or squeezing */
-    background-color: #070a13;       /* Deep space dark background fallback */
-    border-radius: 12px;             /* Clean, smooth borders matching your setup */
+    width: 100% !important;          /* Scales horizontally to fit the card padding */
+    height: auto !important;         /* 🌟 CRUCIAL: Frees the height so it never squishes text */
+    max-height: 380px !important;    /* Caps the vertical height so the popup doesn't run off-screen */
+    object-fit: contain !important;  /* 🌟 CRUCIAL: Preserves exact proportions with letterboxing if needed */
+    background-color: #070a13;       /* Fills background gaps cleanly with your core theme color */
+    border-radius: 12px;             /* Sleek rounded asset corners */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto !important; /* Centers the image frame inside the modal window */
 }
+
 
     .modal-window-core h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
     .modal-window-core .modal-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 6px; margin-bottom: 18px; color: var(--primary); letter-spacing: 0.5px; }
