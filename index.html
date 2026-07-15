@@ -189,6 +189,7 @@
                 border-color: #eab308;
                 box-shadow: 0 12px 30px -10px rgba(234, 179, 8, 0.15);
             }
+        
             .tool-card.yellow-theme .tool-badge {
                 background: rgba(234, 179, 8, 0.1);
                 color: #eab308;
@@ -199,6 +200,7 @@
             border-color: #06b6d4;
             box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
         }
+        
         .tool-card.cyan-theme .tool-badge {
             background: rgba(6, 182, 212, 0.1);
             color: #06b6d4;
@@ -209,6 +211,7 @@
             border-color: #f97316;
             box-shadow: 0 12px 30px -10px rgba(249, 115, 22, 0.15);
         }
+        
         .tool-card.orange-theme .tool-badge {
             background: rgba(249, 115, 22, 0.1);
             color: #f97316;
@@ -224,7 +227,27 @@
             color: #adff2f;
         }
         .volt-theme .action-link { color: #adff2f; }
+        
+                .tool-card.synth-theme:hover {
+            border-color: #d946ef;
+            box-shadow: 0 12px 30px -10px rgba(217, 70, 239, 0.15);
+        }
+        .tool-card.synth-theme .tool-badge {
+            background: rgba(217, 70, 239, 0.1);
+            color: #d946ef;
+        }
+        .synth-theme .action-link { color: #d946ef; }
 
+        .tool-card.chrome-theme:hover {
+            border-color: #f1f5f9;
+            box-shadow: 0 12px 30px -10px rgba(241, 245, 249, 0.15);
+        }
+        
+        .tool-card.chrome-theme .tool-badge {
+            background: rgba(241, 245, 249, 0.1);
+            color: #f1f5f9;
+        }
+        .chrome-theme .action-link { color: #f1f5f9; }
 
     </style>
 </head>
@@ -283,7 +306,7 @@
             <span class="action-link" style="color: #eab308;">Launch Utility</span>
         </a>
 
-                <!-- CARD 6: CRYPTO PROFIT CALCULATOR -->
+        <!-- CARD 6: CRYPTO PROFIT CALCULATOR -->
         <a href="./crypto-profit-calculator/" class="tool-card cyan-theme">
             <span class="tool-badge">Crypto</span>
             <h2>Crypto Profit Modeler</h2>
@@ -291,7 +314,7 @@
             <span class="action-link">Launch Utility</span>
         </a>
 
-                <!-- CARD 7: GEO-ARBITRAGE CALCULATOR -->
+        <!-- CARD 7: GEO-ARBITRAGE CALCULATOR -->
         <a href="./geo-arbitrage-calculator/" class="tool-card orange-theme">
             <span class="tool-badge">Nomad</span>
             <h2>Geo-Arbitrage Modeler</h2>
@@ -299,11 +322,27 @@
             <span class="action-link">Launch Utility</span>
         </a>
 
-                <!-- CARD 8: SIDE HUSTLE ROI MATRIX -->
+        <!-- CARD 8: SIDE HUSTLE ROI MATRIX -->
         <a href="./side-hustle-roi/" class="tool-card volt-theme">
             <span class="tool-badge">ROI Matrix</span>
             <h2>Side Hustle ROI Modeler</h2>
             <p>Calculate your true hourly wage after factoring in unbilled administrative hours and subjective burnout stress penalties.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 9: PASSIVE INCOME MODELER -->
+        <a href="./passive-income-modeler/" class="tool-card synth-theme">
+            <span class="tool-badge">Recurring</span>
+            <h2>Passive Income Modeler</h2>
+            <p>Model custom asset sales metrics and daily checkout velocities required to hit monthly passive recurring income benchmarks.</p>
+            <span class="action-link">Launch Utility</span>
+        </a>
+
+        <!-- CARD 10: AI AGENCY PRICING MATRIX -->
+        <a href="./ai-agency-calculator/" class="tool-card chrome-theme">
+            <span class="tool-badge">B2B Agency</span>
+            <h2>AI Automation Pricing Engine</h2>
+            <p>Calculate optimized workflow setup fees, custom integration surcharges, and long-term contract lifetime value retainers.</p>
             <span class="action-link">Launch Utility</span>
         </a>
 
