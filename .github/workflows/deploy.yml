@@ -1,0 +1,50 @@
+name: Deploy SmartTech Matrix Engine to Pages
+
+on:
+  push:
+    branches: ["main"] # Runs automatically whenever changes are pushed to your main branch
+  workflow_dispatch:   # Allows you to trigger the compilation build manually
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository Source
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby Environment for Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true # Speeds up consecutive builds by caching dependencies
+
+      - name: Build Static Site Pages
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+
+      - name: Upload Output Artifact Bundle
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publish Live to GitHub Pages Server Network
+        id: deployment
+        uses: actions/deploy-pages@v4
